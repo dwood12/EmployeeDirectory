@@ -1,7 +1,6 @@
 package com.square.employeedirectory.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -19,8 +18,9 @@ class EmployeeAdapter : ListAdapter<Employee, EmployeeAdapter.EmployeeViewHolder
 
             Picasso
                 .get()
-                .apply { setIndicatorsEnabled(true) }
-                .load(employee.photoUrlSmall)
+                .load(employee.photoUrl)
+                .resizeDimen(R.dimen.employee_photo_width, R.dimen.employee_photo_height)
+                .centerCrop()
                 .placeholder(R.drawable.ic_baseline_face_24)
                 .error(R.drawable.ic_baseline_error_24)
                 .into(binding.photo)

@@ -5,7 +5,7 @@ import com.square.employeedirectory.network.EmployeeApi
 import com.square.employeedirectory.network.EmployeeDTOMapper
 import com.square.employeedirectory.network.EmployeesDTO
 
-class EmployeeRepository(private val employeeDAO: EmployeeDAO, private val employeeApi: EmployeeApi)  {
+class EmployeeRepository(private val employeeApi: EmployeeApi)  {
     suspend fun getEmployees(): List<Employee> {
         val res = employeeApi.getEmployees()
 
@@ -26,8 +26,7 @@ class EmployeeRepository(private val employeeDAO: EmployeeDAO, private val emplo
 
     private fun processResponse(employeesDTO: EmployeesDTO): List<Employee> {
         val mapper = EmployeeDTOMapper()
-        employeeDAO.insertAll(employeesDTO.employees.map(mapper::toDomainModel))
 
-        return employeeDAO.getAll()
+        return employeesDTO.employees.map(mapper::toDomainModel)
     }
 }

@@ -9,25 +9,8 @@ class EmployeeDTOMapper : DomainMapper<EmployeeDTO, Employee> {
             dto.uuid,
             dto.fullName,
             dto.phoneNumber,
-            dto.emailAddress,
             dto.photoUrlSmall,
-            dto.photoUrlLarge,
-            dto.team,
-            dto.employeeType
+            dto.team
         )
     }
-
-    override fun toDto(domainModel: Employee): EmployeeDTO {
-        return EmployeeDTO(
-            domainModel.uuid,
-            domainModel.fullName,
-            domainModel.phoneNumber,
-            domainModel.emailAddress,
-            domainModel.photoUrlSmall,
-            domainModel.photoUrlLarge,
-            domainModel.team,
-            domainModel.employeeType
-        )
-    }
-
 }

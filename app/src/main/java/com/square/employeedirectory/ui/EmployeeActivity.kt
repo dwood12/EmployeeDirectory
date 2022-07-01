@@ -22,7 +22,6 @@ import org.kodein.di.android.closestDI
 import org.kodein.di.android.x.viewmodel.viewModel
 
 class EmployeeActivity : AppCompatActivity(), DIAware {
-
     override val di: DI by closestDI()
     private val employeeViewModel: EmployeeViewModel by viewModel()
     private var binding: ActivityEmployeeBinding? = null
@@ -39,6 +38,7 @@ class EmployeeActivity : AppCompatActivity(), DIAware {
                         binding?.loader?.show()
                     } else {
                         binding?.loader?.hide()
+                        binding?.refresh?.isRefreshing = false
 
                         if (it.error) {
                             binding?.errorText?.isVisible = true
