@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">EmployeeDirectory</string>
+    <string name="app_name">Employee Directory</string>
+    <string name="error">Could not load employee directory.</string>
+    <string name="empty">No employees in directory</string>
+    <string name="empty_employee_button_text">Empty</string>
+    <string name="employee_directory_button_text">Employee</string>
+    <string name="malformed_employee_directory_button_text">Malformed</string>
 </resources>
